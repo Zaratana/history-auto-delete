@@ -1,0 +1,74 @@
+{
+  "extensionName": {
+    "message": "Auto-Eliminar Historial"
+  },
+  "extensionDescription": {
+    "message": "Elimina automáticamente las nuevas entradas del historial de navegación"
+  },
+  "extensionTitle": {
+    "message": "Auto-Eliminar Historial"
+  },
+  "statusLabel": {
+    "message": "Estado:"
+  },
+  "statusEnabled": {
+    "message": "Habilitado"
+  },
+  "statusDisabled": {
+    "message": "Deshabilitado"
+  },
+  "statusLoading": {
+    "message": "Cargando..."
+  },
+  "buttonDisable": {
+    "message": "Deshabilitar Auto-Eliminación"
+  },
+  "buttonEnable": {
+    "message": "Habilitar Auto-Eliminación"
+  },
+  "buttonProcessing": {
+    "message": "Procesando..."
+  },
+  "buttonDeleteAll": {
+    "message": "Eliminar Todo el Historial"
+  },
+  "confirmationText": {
+    "message": "¿Estás seguro de que quieres eliminar TODO el historial de navegación?"
+  },
+  "confirmButtonDelete": {
+    "message": "Eliminar Todo"
+  },
+  "confirmButtonCancel": {
+    "message": "Cancelar"
+  },
+  "confirmButtonDeleting": {
+    "message": "Eliminando..."
+  },
+  "confirmButtonDeleted": {
+    "message": "¡Eliminado!"
+  },
+  "confirmButtonError": {
+    "message": "Ocurrió un error"
+  },
+  "warningText": {
+    "message": "Advertencia: Esta extensión eliminará automáticamente todas las nuevas entradas del historial de navegación. Tu historial de navegación no se guardará mientras esté habilitada."
+  },
+  "warningBold": {
+    "message": "Advertencia:"
+  },
+  "logInstalled": {
+    "message": "Extensión Auto-Eliminar Historial instalada"
+  },
+  "logDeleted": {
+    "message": "Entrada de historial eliminada:"
+  },
+  "logDeletedAll": {
+    "message": "Todo el historial de navegación se eliminó exitosamente"
+  },
+  "errorDeleteFailed": {
+    "message": "Error al eliminar entrada del historial:"
+  },
+  "errorDeleteAllFailed": {
+    "message": "Error al eliminar todo el historial:"
+  }
+}

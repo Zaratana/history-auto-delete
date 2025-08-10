@@ -3,7 +3,7 @@ let recentUrls = new Set();
 
 // Initialize extension
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('History Auto-Delete extension installed');
+  console.log(chrome.i18n.getMessage('logInstalled'));
 
   // Load saved state
   chrome.storage.local.get(['enabled'], (result) => {
@@ -21,17 +21,15 @@ chrome.history.onVisited.addListener((historyItem) => {
 
   recentUrls.add(url);
 
-  // Remove from recent URLs set after 1 second
+  // Remove from recent URLs set after 500ms
   setTimeout(() => {
     recentUrls.delete(url);
-  }, 1000);
+  }, 500);
 
   // Delete the history entry
   chrome.history.deleteUrl({ url: url }, () => {
     if (chrome.runtime.lastError) {
-      console.error('Failed to delete history entry:', chrome.runtime.lastError);
-    } else {
-      console.log('Deleted history entry:', url);
+      console.error(chrome.i18n.getMessage('errorDeleteFailed'), chrome.runtime.lastError);
     }
   });
 });
@@ -59,10 +57,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     // Delete all browsing history
     chrome.history.deleteAll(() => {
       if (chrome.runtime.lastError) {
-        console.error('Failed to delete all history:', chrome.runtime.lastError);
+        console.error(chrome.i18n.getMessage('errorDeleteAllFailed'), chrome.runtime.lastError);
         sendResponse({ success: false, error: chrome.runtime.lastError });
       } else {
-        console.log('Successfully deleted all browsing history');
+        console.log(chrome.i18n.getMessage('logDeletedAll'));
         sendResponse({ success: true });
       }
     });

@@ -1,0 +1,74 @@
+{
+  "extensionName": {
+    "message": "History Auto-Delete"
+  },
+  "extensionDescription": {
+    "message": "Automatically deletes new browser history entries"
+  },
+  "extensionTitle": {
+    "message": "History Auto-Delete"
+  },
+  "statusLabel": {
+    "message": "Status:"
+  },
+  "statusEnabled": {
+    "message": "Enabled"
+  },
+  "statusDisabled": {
+    "message": "Disabled"
+  },
+  "statusLoading": {
+    "message": "Loading..."
+  },
+  "buttonDisable": {
+    "message": "Disable Auto-Delete"
+  },
+  "buttonEnable": {
+    "message": "Enable Auto-Delete"
+  },
+  "buttonProcessing": {
+    "message": "Processing..."
+  },
+  "buttonDeleteAll": {
+    "message": "Delete All History"
+  },
+  "confirmationText": {
+    "message": "Are you sure you want to delete ALL browsing history?"
+  },
+  "confirmButtonDelete": {
+    "message": "Delete All"
+  },
+  "confirmButtonCancel": {
+    "message": "Cancel"
+  },
+  "confirmButtonDeleting": {
+    "message": "Deleting..."
+  },
+  "confirmButtonDeleted": {
+    "message": "Deleted!"
+  },
+  "confirmButtonError": {
+    "message": "Error occurred"
+  },
+  "warningText": {
+    "message": "Warning: This extension will automatically delete all new browsing history entries. Your browsing history will not be saved while enabled."
+  },
+  "warningBold": {
+    "message": "Warning:"
+  },
+  "logInstalled": {
+    "message": "History Auto-Delete extension installed"
+  },
+  "logDeleted": {
+    "message": "Deleted history entry:"
+  },
+  "logDeletedAll": {
+    "message": "Successfully deleted all browsing history"
+  },
+  "errorDeleteFailed": {
+    "message": "Failed to delete history entry:"
+  },
+  "errorDeleteAllFailed": {
+    "message": "Failed to delete all history:"
+  }
+}

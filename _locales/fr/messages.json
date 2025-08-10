@@ -1,0 +1,74 @@
+{
+  "extensionName": {
+    "message": "Suppression Auto de l'Historique"
+  },
+  "extensionDescription": {
+    "message": "Supprime automatiquement les nouvelles entrées de l'historique de navigation"
+  },
+  "extensionTitle": {
+    "message": "Suppression Auto de l'Historique"
+  },
+  "statusLabel": {
+    "message": "Statut :"
+  },
+  "statusEnabled": {
+    "message": "Activé"
+  },
+  "statusDisabled": {
+    "message": "Désactivé"
+  },
+  "statusLoading": {
+    "message": "Chargement..."
+  },
+  "buttonDisable": {
+    "message": "Désactiver la Suppression Auto"
+  },
+  "buttonEnable": {
+    "message": "Activer la Suppression Auto"
+  },
+  "buttonProcessing": {
+    "message": "Traitement..."
+  },
+  "buttonDeleteAll": {
+    "message": "Supprimer Tout l'Historique"
+  },
+  "confirmationText": {
+    "message": "Êtes-vous sûr de vouloir supprimer TOUT l'historique de navigation ?"
+  },
+  "confirmButtonDelete": {
+    "message": "Tout Supprimer"
+  },
+  "confirmButtonCancel": {
+    "message": "Annuler"
+  },
+  "confirmButtonDeleting": {
+    "message": "Suppression..."
+  },
+  "confirmButtonDeleted": {
+    "message": "Supprimé !"
+  },
+  "confirmButtonError": {
+    "message": "Erreur survenue"
+  },
+  "warningText": {
+    "message": "Avertissement : Cette extension supprimera automatiquement toutes les nouvelles entrées de l'historique de navigation. Votre historique de navigation ne sera pas sauvegardé tant qu'elle est activée."
+  },
+  "warningBold": {
+    "message": "Avertissement :"
+  },
+  "logInstalled": {
+    "message": "Extension Suppression Auto de l'Historique installée"
+  },
+  "logDeleted": {
+    "message": "Entrée d'historique supprimée :"
+  },
+  "logDeletedAll": {
+    "message": "Tout l'historique de navigation a été supprimé avec succès"
+  },
+  "errorDeleteFailed": {
+    "message": "Échec de la suppression de l'entrée d'historique :"
+  },
+  "errorDeleteAllFailed": {
+    "message": "Échec de la suppression de tout l'historique :"
+  }
+}

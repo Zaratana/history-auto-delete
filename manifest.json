@@ -1,9 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "History Auto-Delete",
+  "name": "__MSG_extensionName__",
   "author": "Collin Grimm <hello@collingrimm.com>",
   "version": "1.0",
-  "description": "Automatically deletes new browser history entries",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "es",
+  "current_locale": "es",
   "permissions": [
     "history",
     "storage"

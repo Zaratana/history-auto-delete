@@ -183,29 +183,31 @@
 
 <body>
   <div class="header">
-    <h1 class="title">History Auto-Delete</h1>
+    <h1 class="title" data-i18n="extensionTitle">History Auto-Delete</h1>
   </div>
 
   <div id="status" class="status">
-    <span class="status-text">Status: <span id="statusText">Loading...</span></span>
+    <span class="status-text"><span data-i18n="statusLabel">Status:</span> <span id="statusText"
+        data-i18n="statusLoading">Loading...</span></span>
     <div id="indicator" class="indicator"></div>
   </div>
 
-  <button id="toggleBtn" class="toggle-btn">Loading...</button>
+  <button id="toggleBtn" class="toggle-btn" data-i18n="statusLoading">Loading...</button>
 
-  <button id="deleteAllBtn" class="delete-all-btn">Delete All History</button>
+  <button id="deleteAllBtn" class="delete-all-btn" data-i18n="buttonDeleteAll">Delete All History</button>
 
   <div id="confirmationDialog" class="confirmation-dialog">
-    <div class="confirmation-text">Are you sure you want to delete ALL browsing history?</div>
+    <div class="confirmation-text" data-i18n="confirmationText">Are you sure you want to delete ALL browsing history?
+    </div>
     <div class="confirmation-buttons">
-      <button id="confirmBtn" class="confirm-btn">Delete All</button>
-      <button id="cancelBtn" class="cancel-btn">Cancel</button>
+      <button id="confirmBtn" class="confirm-btn" data-i18n="confirmButtonDelete">Delete All</button>
+      <button id="cancelBtn" class="cancel-btn" data-i18n="confirmButtonCancel">Cancel</button>
     </div>
   </div>
 
   <div class="warning">
-    <strong>Warning:</strong>This extension will automatically delete all new browsing history entries. Your browsing
-    history will not be saved while enabled.
+    <strong data-i18n="warningBold">Warning:</strong> <span data-i18n="warningText">This extension will automatically
+      delete all new browsing history entries. Your browsing history will not be saved while enabled.</span>
   </div>
 
   <script src="popup.js"></script>
