@@ -4,8 +4,7 @@
   "author": "Collin Grimm <hello@collingrimm.com>",
   "version": "1.0",
   "description": "__MSG_extensionDescription__",
-  "default_locale": "es",
-  "current_locale": "es",
+  "default_locale": "en",
   "permissions": [
     "history",
     "storage"
