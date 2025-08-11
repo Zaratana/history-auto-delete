@@ -1,5 +1,4 @@
 let isEnabled = true;
-let recentUrls = new Set();
 
 // Initialize extension
 chrome.runtime.onInstalled.addListener(() => {
@@ -11,22 +10,11 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-// Listen for history visits
 chrome.history.onVisited.addListener((historyItem) => {
   if (!isEnabled) return;
 
   const url = historyItem.url;
-  // Avoid deleting the same URL multiple times in quick succession
-  if (recentUrls.has(url)) return;
 
-  recentUrls.add(url);
-
-  // Remove from recent URLs set after 500ms
-  setTimeout(() => {
-    recentUrls.delete(url);
-  }, 500);
-
-  // Delete the history entry
   chrome.history.deleteUrl({ url: url }, () => {
     if (chrome.runtime.lastError) {
       console.error(chrome.i18n.getMessage('errorDeleteFailed'), chrome.runtime.lastError);
@@ -40,13 +28,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     sendResponse({ enabled: isEnabled });
   } else if (request.action === 'toggle') {
     isEnabled = !isEnabled;
-
-    // Save state
     chrome.storage.local.set({ enabled: isEnabled });
 
     sendResponse({ enabled: isEnabled });
 
-    // Update badge
     chrome.action.setBadgeText({
       text: isEnabled ? 'ON' : 'OFF'
     });
@@ -64,8 +49,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ success: true });
       }
     });
-
-    // Return true to indicate we will send a response asynchronously
     return true;
   }
 });
