@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "author": "Collin Grimm <hello@collingrimm.com>",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "permissions": [
