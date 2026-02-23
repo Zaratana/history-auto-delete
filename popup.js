@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmationDialog = document.getElementById('confirmationDialog');
     const confirmBtn = document.getElementById('confirmBtn');
     const cancelBtn = document.getElementById('cancelBtn');
+    const settingsBtn = document.getElementById('settingsBtn');
     // initialize internationalization
     function initializeI18n() {
         const elements = document.querySelectorAll('[data-i18n]');
@@ -91,4 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmBtn.disabled = false;
         confirmBtn.textContent = chrome.i18n.getMessage('confirmButtonDelete');
     }
+    // open settings page in a new extension tab
+    settingsBtn.addEventListener('click', () => {
+        chrome.tabs.create({ url: chrome.runtime.getURL('settings.html') });
+    });
 });
