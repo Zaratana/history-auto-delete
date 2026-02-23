@@ -7,7 +7,8 @@
   "default_locale": "en",
   "permissions": [
     "history",
-    "storage"
+    "storage",
+    "tabs"
   ],
   "background": {
     "service_worker": "background.js"
@@ -16,6 +17,12 @@
     "default_popup": "popup.html",
     "default_title": "History Auto-Delete"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["settings.html", "settings.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",

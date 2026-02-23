@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
   const confirmationDialog = document.getElementById('confirmationDialog') as HTMLDivElement;
   const confirmBtn = document.getElementById('confirmBtn') as HTMLButtonElement;
   const cancelBtn = document.getElementById('cancelBtn') as HTMLButtonElement;
+  const settingsBtn = document.getElementById('settingsBtn') as HTMLButtonElement;
 
   // initialize internationalization
   function initializeI18n(): void {
@@ -107,4 +108,9 @@ document.addEventListener('DOMContentLoaded', (): void => {
     confirmBtn.disabled = false;
     confirmBtn.textContent = chrome.i18n.getMessage('confirmButtonDelete');
   }
+
+  // open settings page in a new extension tab
+  settingsBtn.addEventListener('click', (): void => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('settings.html') });
+  });
 });
