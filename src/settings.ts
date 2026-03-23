@@ -6,27 +6,16 @@ document.addEventListener('DOMContentLoaded', (): void => {
   const exemptionList = document.getElementById('exemptionList') as HTMLDivElement;
   const backBtn = document.getElementById('backBtn') as HTMLButtonElement;
 
-  // ── back button: close this tab ────────────────────────────────────────────
   backBtn.addEventListener('click', (): void => {
     window.close();
   });
 
-  // ── helpers ────────────────────────────────────────────────────────────────
-
-  /**
-   * Normalise user input into a bare hostname.
-   * Accepts "gmail.com", "https://gmail.com", "www.gmail.com/foo", etc.
-   * Returns null when the input cannot be parsed into a valid hostname.
-   */
   function parseHostname(raw: string): string | null {
     const trimmed = raw.trim().toLowerCase();
     if (!trimmed) return null;
-
-    // Prepend a scheme if missing so URL() can parse it
     const withScheme = trimmed.includes('://') ? trimmed : `https://${trimmed}`;
     try {
       const hostname = new URL(withScheme).hostname;
-      // Minimal validation: must contain at least one dot and no spaces
       if (!hostname || !hostname.includes('.') || hostname.includes(' ')) return null;
       return hostname;
     } catch {
@@ -41,8 +30,6 @@ document.addEventListener('DOMContentLoaded', (): void => {
   function clearError(): void {
     addError.textContent = '';
   }
-
-  // ── render ─────────────────────────────────────────────────────────────────
 
   function renderList(exemptions: ExemptedSite[]): void {
     exemptionList.innerHTML = '';
@@ -125,7 +112,6 @@ document.addEventListener('DOMContentLoaded', (): void => {
     });
   }
 
-  // ── load initial list ──────────────────────────────────────────────────────
 
   chrome.runtime.sendMessage<OutgoingMessage, ExemptionsResponse>(
     { action: 'getExemptions' },
@@ -134,7 +120,6 @@ document.addEventListener('DOMContentLoaded', (): void => {
     },
   );
 
-  // ── add site ───────────────────────────────────────────────────────────────
 
   function handleAdd(): void {
     clearError();

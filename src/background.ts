@@ -1,7 +1,6 @@
 let isEnabled: boolean = true;
 let exemptions: ExemptedSite[] = [];
 
-// ── helpers ──────────────────────────────────────────────────────────────────
 
 /** Return true when the given URL is covered by an active exemption. */
 function isExempted(url: string): boolean {
@@ -21,13 +20,11 @@ function saveExemptions(): void {
 }
 
 function updateBadge(): void {
-  chrome.action.setBadgeText({ text: isEnabled ? 'ON' : 'OFF' });
+  chrome.action.setBadgeText({ text: isEnabled ? 'on' : 'off' });
   chrome.action.setBadgeBackgroundColor({
     color: isEnabled ? '#4CAF50' : '#F44336',
   });
 }
-
-// ── initialisation ────────────────────────────────────────────────────────────
 
 chrome.runtime.onInstalled.addListener((): void => {
   console.log(chrome.i18n.getMessage('logInstalled'));
@@ -50,8 +47,6 @@ chrome.storage.local.get(
   },
 );
 
-// ── history listener ──────────────────────────────────────────────────────────
-
 chrome.history.onVisited.addListener((historyItem: chrome.history.HistoryItem): void => {
   if (!isEnabled) return;
 
@@ -68,7 +63,6 @@ chrome.history.onVisited.addListener((historyItem: chrome.history.HistoryItem): 
   });
 });
 
-// ── message handler ───────────────────────────────────────────────────────────
 
 chrome.runtime.onMessage.addListener(
   (
@@ -76,18 +70,15 @@ chrome.runtime.onMessage.addListener(
     _sender: chrome.runtime.MessageSender,
     sendResponse: (response: StatusResponse | DeleteAllResponse | ExemptionsResponse | MutateExemptionResponse) => void,
   ): boolean | undefined => {
-    // ── getStatus ──
     if (request.action === 'getStatus') {
       sendResponse({ enabled: isEnabled });
 
-    // ── toggle global on/off ──
     } else if (request.action === 'toggle') {
       isEnabled = !isEnabled;
       chrome.storage.local.set({ enabled: isEnabled });
       updateBadge();
       sendResponse({ enabled: isEnabled });
 
-    // ── deleteAll ──
     } else if (request.action === 'deleteAll') {
       chrome.history.deleteAll((): void => {
         if (chrome.runtime.lastError) {
@@ -103,11 +94,9 @@ chrome.runtime.onMessage.addListener(
       });
       return true; // async response
 
-    // ── getExemptions ──
     } else if (request.action === 'getExemptions') {
       sendResponse({ exemptions });
 
-    // ── addExemption ──
     } else if (request.action === 'addExemption') {
       const hostname = request.hostname?.trim().toLowerCase();
       if (hostname && !exemptions.some((s: ExemptedSite) => s.hostname === hostname)) {
@@ -116,14 +105,11 @@ chrome.runtime.onMessage.addListener(
       }
       sendResponse({ success: true, exemptions });
 
-    // ── removeExemption ──
     } else if (request.action === 'removeExemption') {
       const hostname = request.hostname?.trim().toLowerCase();
       exemptions = exemptions.filter((s: ExemptedSite) => s.hostname !== hostname);
       saveExemptions();
       sendResponse({ success: true, exemptions });
-
-    // ── toggleExemption ──
     } else if (request.action === 'toggleExemption') {
       const hostname = request.hostname?.trim().toLowerCase();
       const site = exemptions.find((s: ExemptedSite) => s.hostname === hostname);
@@ -137,7 +123,5 @@ chrome.runtime.onMessage.addListener(
     return undefined;
   },
 );
-
-// ── initial badge ─────────────────────────────────────────────────────────────
 
 updateBadge();

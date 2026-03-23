@@ -6,25 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyState = document.getElementById('emptyState');
     const exemptionList = document.getElementById('exemptionList');
     const backBtn = document.getElementById('backBtn');
-    // ── back button: close this tab ────────────────────────────────────────────
     backBtn.addEventListener('click', () => {
         window.close();
     });
-    // ── helpers ────────────────────────────────────────────────────────────────
-    /**
-     * Normalise user input into a bare hostname.
-     * Accepts "gmail.com", "https://gmail.com", "www.gmail.com/foo", etc.
-     * Returns null when the input cannot be parsed into a valid hostname.
-     */
     function parseHostname(raw) {
         const trimmed = raw.trim().toLowerCase();
         if (!trimmed)
             return null;
-        // Prepend a scheme if missing so URL() can parse it
         const withScheme = trimmed.includes('://') ? trimmed : `https://${trimmed}`;
         try {
             const hostname = new URL(withScheme).hostname;
-            // Minimal validation: must contain at least one dot and no spaces
             if (!hostname || !hostname.includes('.') || hostname.includes(' '))
                 return null;
             return hostname;
@@ -39,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function clearError() {
         addError.textContent = '';
     }
-    // ── render ─────────────────────────────────────────────────────────────────
     function renderList(exemptions) {
         exemptionList.innerHTML = '';
         if (exemptions.length === 0) {
@@ -101,11 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             exemptionList.appendChild(item);
         });
     }
-    // ── load initial list ──────────────────────────────────────────────────────
     chrome.runtime.sendMessage({ action: 'getExemptions' }, (response) => {
         renderList(response?.exemptions ?? []);
     });
-    // ── add site ───────────────────────────────────────────────────────────────
     function handleAdd() {
         clearError();
         const hostname = parseHostname(hostnameInput.value);
