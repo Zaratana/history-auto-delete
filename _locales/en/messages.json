@@ -50,9 +50,6 @@
   "confirmButtonError": {
     "message": "Error occurred"
   },
-  "warningText": {
-    "message": "Warning: This extension will automatically delete all new browsing history entries. Your browsing history will not be saved while enabled."
-  },
   "warningBold": {
     "message": "Warning:"
   },
@@ -70,5 +67,69 @@
   },
   "errorDeleteAllFailed": {
     "message": "Failed to delete all history:"
+  },
+  "popupSettingsTitle": {
+    "message": "Settings"
+  },
+  "popupSettingsAriaLabel": {
+    "message": "Open settings"
+  },
+  "settingsPageTitle": {
+    "message": "Exempted Sites"
+  },
+  "settingsAddSiteHeading": {
+    "message": "Add Site"
+  },
+  "settingsAddPlaceholder": {
+    "message": "e.g. gmail.com"
+  },
+  "settingsAddButton": {
+    "message": "Add"
+  },
+  "settingsExemptedSitesHeading": {
+    "message": "Exempted Sites"
+  },
+  "settingsEmptyState": {
+    "message": "No exempted sites yet. Sites you add above will not have their history deleted."
+  },
+  "settingsInfoHowItWorks": {
+    "message": "How it works:"
+  },
+  "settingsInfoDescription": {
+    "message": "When a site is on this list and its toggle is on, visits to that site are kept in your history. Toggle it off to temporarily re-enable deletion for that site without removing it from the list."
+  },
+  "settingsBackTitle": {
+    "message": "Close tab"
+  },
+  "settingsBackAriaLabel": {
+    "message": "Close settings tab"
+  },
+  "settingsToggleActive": {
+    "message": "Exemption active — click to disable"
+  },
+  "settingsToggleInactive": {
+    "message": "Exemption inactive — click to enable"
+  },
+  "settingsToggleAriaLabel": {
+    "message": "Toggle exemption for $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsRemoveTitle": {
+    "message": "Remove $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsErrorInvalidHostname": {
+    "message": "Please enter a valid hostname, e.g. gmail.com"
+  },
+  "settingsErrorAddFailed": {
+    "message": "Failed to add site. Please try again."
   }
 }

@@ -20,6 +20,21 @@ document.addEventListener('DOMContentLoaded', (): void => {
         element.textContent = message;
       }
     });
+
+    document.querySelectorAll<HTMLElement>('[data-i18n-title]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-title');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) el.title = msg; }
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-aria');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) el.setAttribute('aria-label', msg); }
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-i18n-placeholder]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) (el as HTMLInputElement).placeholder = msg; }
+    });
   }
 
   // initialize internationalization

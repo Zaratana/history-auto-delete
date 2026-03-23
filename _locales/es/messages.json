@@ -50,9 +50,6 @@
   "confirmButtonError": {
     "message": "Ocurrió un error"
   },
-  "warningText": {
-    "message": "Advertencia: Esta extensión eliminará automáticamente todas las nuevas entradas del historial de navegación. Tu historial de navegación no se guardará mientras esté habilitada."
-  },
   "warningBold": {
     "message": "Advertencia:"
   },
@@ -70,5 +67,69 @@
   },
   "errorDeleteAllFailed": {
     "message": "Error al eliminar todo el historial:"
+  },
+  "popupSettingsTitle": {
+    "message": "Configuración"
+  },
+  "popupSettingsAriaLabel": {
+    "message": "Abrir configuración"
+  },
+  "settingsPageTitle": {
+    "message": "Sitios Exentos"
+  },
+  "settingsAddSiteHeading": {
+    "message": "Agregar Sitio"
+  },
+  "settingsAddPlaceholder": {
+    "message": "ej. gmail.com"
+  },
+  "settingsAddButton": {
+    "message": "Agregar"
+  },
+  "settingsExemptedSitesHeading": {
+    "message": "Sitios Exentos"
+  },
+  "settingsEmptyState": {
+    "message": "No hay sitios exentos aún. Los sitios que agregues arriba no tendrán su historial eliminado."
+  },
+  "settingsInfoHowItWorks": {
+    "message": "Cómo funciona:"
+  },
+  "settingsInfoDescription": {
+    "message": "Cuando un sitio está en esta lista y su interruptor está activado, las visitas a ese sitio se conservan en tu historial. Desactívalo para volver a habilitar temporalmente la eliminación de ese sitio sin quitarlo de la lista."
+  },
+  "settingsBackTitle": {
+    "message": "Cerrar pestaña"
+  },
+  "settingsBackAriaLabel": {
+    "message": "Cerrar pestaña de configuración"
+  },
+  "settingsToggleActive": {
+    "message": "Exención activa — clic para desactivar"
+  },
+  "settingsToggleInactive": {
+    "message": "Exención inactiva — clic para activar"
+  },
+  "settingsToggleAriaLabel": {
+    "message": "Alternar exención para $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsRemoveTitle": {
+    "message": "Eliminar $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsErrorInvalidHostname": {
+    "message": "Por favor ingresa un nombre de host válido, ej. gmail.com"
+  },
+  "settingsErrorAddFailed": {
+    "message": "Error al agregar el sitio. Por favor intenta de nuevo."
   }
 }

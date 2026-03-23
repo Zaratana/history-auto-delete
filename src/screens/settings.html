@@ -281,45 +281,46 @@
 <body>
   <div class="page-wrapper">
     <div class="header">
-      <button class="back-btn" id="backBtn" title="Close tab" aria-label="Close settings tab">
+      <button class="back-btn" id="backBtn" data-i18n-title="settingsBackTitle" data-i18n-aria="settingsBackAriaLabel" title="Close tab" aria-label="Close settings tab">
         <!-- left-arrow SVG -->
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
         </svg>
       </button>
-      <h1 class="page-title">Exempted Sites</h1>
+      <h1 class="page-title" data-i18n="settingsPageTitle">Exempted Sites</h1>
     </div>
 
     <!-- add site -->
     <div class="add-section">
-      <h2>Add Site</h2>
+      <h2 data-i18n="settingsAddSiteHeading">Add Site</h2>
       <div class="add-row">
         <input
           type="text"
           id="hostnameInput"
           class="add-input"
+          data-i18n-placeholder="settingsAddPlaceholder"
           placeholder="e.g. gmail.com"
           autocomplete="off"
           spellcheck="false"
         />
-        <button id="addBtn" class="add-btn">Add</button>
+        <button id="addBtn" class="add-btn" data-i18n="settingsAddButton">Add</button>
       </div>
       <div class="add-error" id="addError" role="alert" aria-live="polite"></div>
     </div>
 
     <!-- exemption list -->
     <div class="list-section">
-      <h2>Exempted Sites</h2>
-      <div id="emptyState" class="empty-state">
+      <h2 data-i18n="settingsExemptedSitesHeading">Exempted Sites</h2>
+      <div id="emptyState" class="empty-state" data-i18n="settingsEmptyState">
         No exempted sites yet. Sites you add above will not have their history deleted.
       </div>
       <div id="exemptionList" class="exemption-list" style="display:none;"></div>
     </div>
 
-    <div class="info">
-      <strong>How it works:</strong> When a site is on this list and its toggle is <em>on</em>,
-      visits to that site are kept in your history. Toggle it <em>off</em> to temporarily
-      re-enable deletion for that site without removing it from the list.
+    <div class="info" id="infoSection">
+      <strong data-i18n="settingsInfoHowItWorks">How it works:</strong> <span data-i18n="settingsInfoDescription">When a site is on this list and its toggle is on,
+      visits to that site are kept in your history. Toggle it off to temporarily
+      re-enable deletion for that site without removing it from the list.</span>
     </div>
   </div>
 

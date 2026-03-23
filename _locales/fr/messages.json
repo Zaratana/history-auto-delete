@@ -50,9 +50,6 @@
   "confirmButtonError": {
     "message": "Erreur survenue"
   },
-  "warningText": {
-    "message": "Avertissement : Cette extension supprimera automatiquement toutes les nouvelles entrées de l'historique de navigation. Votre historique de navigation ne sera pas sauvegardé tant qu'elle est activée."
-  },
   "warningBold": {
     "message": "Avertissement :"
   },
@@ -70,5 +67,69 @@
   },
   "errorDeleteAllFailed": {
     "message": "Échec de la suppression de tout l'historique :"
+  },
+  "popupSettingsTitle": {
+    "message": "Paramètres"
+  },
+  "popupSettingsAriaLabel": {
+    "message": "Ouvrir les paramètres"
+  },
+  "settingsPageTitle": {
+    "message": "Sites Exemptés"
+  },
+  "settingsAddSiteHeading": {
+    "message": "Ajouter un Site"
+  },
+  "settingsAddPlaceholder": {
+    "message": "ex. gmail.com"
+  },
+  "settingsAddButton": {
+    "message": "Ajouter"
+  },
+  "settingsExemptedSitesHeading": {
+    "message": "Sites Exemptés"
+  },
+  "settingsEmptyState": {
+    "message": "Aucun site exempté pour le moment. Les sites que vous ajoutez ci-dessus ne verront pas leur historique supprimé."
+  },
+  "settingsInfoHowItWorks": {
+    "message": "Comment ça marche :"
+  },
+  "settingsInfoDescription": {
+    "message": "Quand un site est dans cette liste et que son interrupteur est activé, les visites de ce site sont conservées dans votre historique. Désactivez-le pour réactiver temporairement la suppression de ce site sans le retirer de la liste."
+  },
+  "settingsBackTitle": {
+    "message": "Fermer l'onglet"
+  },
+  "settingsBackAriaLabel": {
+    "message": "Fermer l'onglet des paramètres"
+  },
+  "settingsToggleActive": {
+    "message": "Exemption active — cliquer pour désactiver"
+  },
+  "settingsToggleInactive": {
+    "message": "Exemption inactive — cliquer pour activer"
+  },
+  "settingsToggleAriaLabel": {
+    "message": "Basculer l'exemption pour $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsRemoveTitle": {
+    "message": "Supprimer $hostname$",
+    "placeholders": {
+      "hostname": {
+        "content": "$1"
+      }
+    }
+  },
+  "settingsErrorInvalidHostname": {
+    "message": "Veuillez entrer un nom d'hôte valide, ex. gmail.com"
+  },
+  "settingsErrorAddFailed": {
+    "message": "Échec de l'ajout du site. Veuillez réessayer."
   }
 }

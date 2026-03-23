@@ -6,6 +6,28 @@ document.addEventListener('DOMContentLoaded', (): void => {
   const exemptionList = document.getElementById('exemptionList') as HTMLDivElement;
   const backBtn = document.getElementById('backBtn') as HTMLButtonElement;
 
+  // initialize internationalization
+  function initializeI18n(): void {
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) el.textContent = msg; }
+    });
+    document.querySelectorAll<HTMLElement>('[data-i18n-title]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-title');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) el.title = msg; }
+    });
+    document.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-aria');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) el.setAttribute('aria-label', msg); }
+    });
+    document.querySelectorAll<HTMLElement>('[data-i18n-placeholder]').forEach((el: HTMLElement): void => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (key) { const msg = chrome.i18n.getMessage(key); if (msg) (el as HTMLInputElement).placeholder = msg; }
+    });
+  }
+
+  initializeI18n();
+
   backBtn.addEventListener('click', (): void => {
     window.close();
   });
@@ -56,12 +78,12 @@ document.addEventListener('DOMContentLoaded', (): void => {
       // toggle switch
       const switchLabel = document.createElement('label');
       switchLabel.className = 'switch';
-      switchLabel.title = site.enabled ? 'Exemption active — click to disable' : 'Exemption inactive — click to enable';
+      switchLabel.title = site.enabled ? chrome.i18n.getMessage('settingsToggleActive') : chrome.i18n.getMessage('settingsToggleInactive');
 
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.checked = site.enabled;
-      checkbox.setAttribute('aria-label', `Toggle exemption for ${site.hostname}`);
+      checkbox.setAttribute('aria-label', chrome.i18n.getMessage('settingsToggleAriaLabel', [site.hostname]));
 
       const track = document.createElement('span');
       track.className = 'switch-track';
@@ -87,8 +109,8 @@ document.addEventListener('DOMContentLoaded', (): void => {
       // remove button
       const removeBtn = document.createElement('button');
       removeBtn.className = 'remove-btn';
-      removeBtn.title = `Remove ${site.hostname}`;
-      removeBtn.setAttribute('aria-label', `Remove ${site.hostname}`);
+      removeBtn.title = chrome.i18n.getMessage('settingsRemoveTitle', [site.hostname]);
+      removeBtn.setAttribute('aria-label', chrome.i18n.getMessage('settingsRemoveTitle', [site.hostname]));
       removeBtn.innerHTML = `
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
@@ -126,7 +148,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
     const hostname = parseHostname(hostnameInput.value);
 
     if (!hostname) {
-      showError('Please enter a valid hostname, e.g. gmail.com');
+      showError(chrome.i18n.getMessage('settingsErrorInvalidHostname'));
       hostnameInput.focus();
       return;
     }
@@ -141,7 +163,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
           hostnameInput.value = '';
           renderList(response.exemptions);
         } else {
-          showError('Failed to add site. Please try again.');
+          showError(chrome.i18n.getMessage('settingsErrorAddFailed'));
         }
       },
     );
