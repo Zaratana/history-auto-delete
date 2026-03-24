@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Chrome extension that automatically deletes browsing history",
   "scripts": {
-    "build": "tsc && cp src/screens/*.html build/ && cp manifest.json build/ && cp -r _locales icons images build/",
+    "build": "tsc && cp src/screens/*.html build/ && cp manifest.json build/ && cp -r _locales icons build/",
     "watch": "tsc --watch",
     "clean": "rm -rf build/* dist/*",
     "package": "npm run build && mkdir -p dist && cd build && zip -r ../dist/no-history-extension-$npm_package_version.zip ."
